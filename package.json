@@ -1,0 +1,46 @@
+{
+  "name": "hono-mongodb",
+  "description": "This is the start kit with use mongodb + cloudflare workers + honojs run on serverless envronment.",
+  "version": "0.0.1",
+  "private": "false",
+  "author": {
+    "name": "Dhruvish Lathiya",
+    "email": "thedhruvish@gmail.com",
+    "url": "https://thedhruvish.com"
+  },
+  "homepage": "https://github.com/thedhruvish/hono-mongodb",
+  "keywords": [
+    "honojs",
+    "mongodb",
+    "cloudflare",
+    "mongo-hono",
+    "hono-mongodb",
+    "hono.dev",
+    "honojs.dev",
+    "wrangler"
+  ],
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thedhruvish/hono-mongodb"
+  },
+  "bugs": {
+    "url": "https://github.com/thedhruvish/hono-mongodb/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/types/index.ts",
+  "dependencies": {
+    "hono": "^4.7.9",
+    "mongodb": "^6.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "wrangler": "^4.15.2"
+  }
+}
