@@ -37,6 +37,7 @@
   "types": "src/types/index.ts",
   "dependencies": {
     "hono": "^4.7.9",
+    "js-base64": "^3.7.7",
     "mongodb": "^6.16.0"
   },
   "devDependencies": {

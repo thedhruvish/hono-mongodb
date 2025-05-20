@@ -1,7 +1,9 @@
-import { ObjectId ,Db} from "mongodb";
+import { ObjectId, Db } from "mongodb";
 
 export interface CloudflareBindings {
   MONGODB_URI: string;
+  JWT_SECRET: string;
+  IMAGEKIT_PRIVATE_KEY: string;
 }
 
 export interface Item {
@@ -23,7 +25,7 @@ export interface User {
   name: string;
   email: string;
   password: string;
-  role: 'user' | 'admin' | 'moderator';
+  role: "user" | "admin" | "moderator";
   profile?: Profile;
 }
 

@@ -6,6 +6,7 @@ import { createDatabaseConnection } from "./db/connect";
 import { items } from "./routes/items";
 import { users } from "./routes/users";
 import { auth } from "./routes/auth";
+import { handleImageFromForm, uploadToImageKit } from "./utils/imageHandle";
 
 const app = new Hono<{
   Bindings: CloudflareBindings;
@@ -67,6 +68,22 @@ app.get("/", (c) => {
 app.route("/users", users);
 app.route("/items", items);
 
+// image upload route now developed
+app.post("/upload", async (c) => {
+  try {
+    const formData = await c.req.parseBody();
+    const { blob, filename } = await handleImageFromForm(formData);
+    const IMAGEKIT_PRIVATE_KEY = c.env.IMAGEKIT_PRIVATE_KEY;
+    const result = await uploadToImageKit(blob, filename, IMAGEKIT_PRIVATE_KEY);
+    return c.json({ result });
+  } catch (error) {
+    console.log(error);
+    return c.json(
+      { error: "Internal server error", err: JSON.stringify(error) },
+      500
+    );
+  }
+});
 
 // other routes
 // 404 route
