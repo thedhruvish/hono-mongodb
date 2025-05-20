@@ -25,7 +25,7 @@ users.post("/", async (c) => {
     const user = await c.req.json<User>();
 
     if (!user.name || !user.email || !user.password) {
-      return c.json({ error: "Missing required fields" }, 400);
+      return c.json({ error: "Missing required fields" }, 422);
     }
 
     const existingUser = await collection.findOne({ email: user.email });
